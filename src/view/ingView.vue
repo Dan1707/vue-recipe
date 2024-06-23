@@ -78,11 +78,7 @@ const slicedArray = computed(() => {
     Search recipes by main ingridient
   </h1>
   <div class="container">
-    <div
-      class="w-full sticky top-[110px] z-[100] shadow-md rounded-lg p-5 bg-gray-200 backdrop-blur-sm bg-opacity-50 tablet:p-4 gap-3 tablet:flex-col laptop:top-[90px]"
-    >
-      <RecSearch @searchData="searchByIng" />
-    </div>
+    <RecSearchList @searchEmit="searchByIng" :showCategories="false" />
     <div v-if="ingArray.length > 0">
       <RecItemContainer :arr="slicedArray" />
     </div>

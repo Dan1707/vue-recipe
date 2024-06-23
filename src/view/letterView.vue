@@ -99,9 +99,7 @@ const slicedArray = computed(() => {
   </div>
   <div v-if="showInput">
     <div class="container">
-      <div
-        class="mt-10 w-full sticky top-[110px] z-[100] shadow-md rounded-lg p-5 bg-gray-200 backdrop-blur-sm bg-opacity-50 tablet:p-4 gap-3 tablet:flex-col laptop:top-[90px]"
-      >
+      <RecSearchList @searchEmit="localSearch" :showCategories="false">
         <div
           class="flex justify-between flex-wrap gap-1 items-center max-w-xl m-auto"
         >
@@ -114,8 +112,7 @@ const slicedArray = computed(() => {
             {{ letter }}
           </span>
         </div>
-        <RecSearch @searchData="localSearch" />
-      </div>
+      </RecSearchList>
       <div v-if="slicedArray.length > 0">
         <RecItemContainer :arr="slicedArray" />
       </div>

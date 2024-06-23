@@ -2,11 +2,8 @@
 import axios from "axios";
 import store from "@/store.ts";
 import { ref } from "vue";
-import { ArrowUp } from "lucide-vue-next";
-import { ArrowDown } from "lucide-vue-next";
 
 const storeData = store();
-const hideSearch = ref(false);
 
 interface fullResipeItem {
   idMeal: string;
@@ -111,32 +108,7 @@ const copyArr = (arr: object[]) => {
       <div>
         <h2 class="title">Popular Recipies:</h2>
       </div>
-      <div
-        class="mt-10 w-full sticky top-[110px] laptop:top-[90px] z-[100] flex justify-between gap-2"
-      >
-        <div
-          class="w-full tablet:flex-col flex-between shadow-md rounded-lg p-5 bg-gray-200 backdrop-blur-sm bg-opacity-50 tablet:p-4 flex-between gap-3 duration-300"
-          :class="{ hideSearch: hideSearch }"
-        >
-          <RecSearch @searchData="getData" />
-          <RecCategories />
-        </div>
-        <button
-          v-if="hideSearch === false"
-          @click="hideSearch = !hideSearch"
-          class="p-2 bg-light rounded-lg shadow-xl self-start border"
-        >
-          <ArrowUp />
-        </button>
-        <button
-          v-if="hideSearch"
-          @click="hideSearch = !hideSearch"
-          class="p-2 bg-light rounded-lg shadow-xl self-start border"
-        >
-          <ArrowDown />
-        </button>
-      </div>
-
+      <RecSearchList @searchEmit="getData" :showCategories="true" />
       <RecItemContainer :arr="slicedArray" />
       <RecPagination :arr="storeData.recipesToShow" @sendArr="copyArr" />
     </div>
@@ -146,5 +118,6 @@ const copyArr = (arr: object[]) => {
 <style>
 .hideSearch {
   opacity: 0;
+  display: none;
 }
 </style>

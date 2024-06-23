@@ -15,6 +15,7 @@ import RecCategories from "./categories/RecCategories.vue";
 import RecItemContainer from "./recipes/RecItemContainer.vue";
 import RecPagination from "./pagination/RecPagination.vue";
 import RecFooter from "./footer/RecFooter.vue";
+import RecSearchList from "./searchList/RecSearchList.vue";
 
 interface Component {
   name: string;
@@ -37,6 +38,7 @@ const components: Component[] = [
   { name: "RecItemContainer", component: RecItemContainer },
   { name: "RecPagination", component: RecPagination },
   { name: "RecFooter", component: RecFooter },
+  { name: "RecSearchList", component: RecSearchList },
 ];
 
 const plugin = {

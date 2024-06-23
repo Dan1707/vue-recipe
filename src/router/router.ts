@@ -3,6 +3,7 @@ import HomeView from "@/view/homeView.vue";
 import LetterView from "@/view/letterView.vue";
 import ingView from "@/view/ingView.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import store from "@/store.ts";
 
 const routes = [
   {
@@ -21,6 +22,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const storeData = store();
+
+  storeData.deleteText();
+  next();
 });
 
 export default router;
