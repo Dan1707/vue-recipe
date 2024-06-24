@@ -52,7 +52,7 @@ defineProps({
             </tbody>
           </table>
 
-          <h2 class="mt-5 font-bold text-[24px] text-dark">Istractions:</h2>
+          <h2 class="mt-5 font-bold text-[24px] text-dark">Istructions:</h2>
           <p class="max-w-[650px] basis-full">
             {{ recipe.instructions }}
           </p>
