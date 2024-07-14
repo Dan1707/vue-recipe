@@ -1,5 +1,3 @@
-<script lang="ts"></script>
-
 <template>
   <nav class="max-w-fit basis-full desktop:gap-2 gap-5">
     <ul class="flex-between">

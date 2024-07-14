@@ -12,7 +12,7 @@ defineProps({
   <div
     class="grid grid-cols-3 items-center justify-between mt-10 gap-5 tablet:grid-cols-2 recipes__container"
   >
-    <RecRecipesItem v-for="recipe in arr" :key="recipe.id" :recipe="recipe" />
+    <RecRecipesItem v-for="recipe in arr" :key="recipe" :recipe="recipe" />
   </div>
 </template>
 
