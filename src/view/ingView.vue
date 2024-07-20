@@ -47,7 +47,7 @@ const searchByIng = async (mainIng: string) => {
 
     const data = res.data;
 
-    if (mainIng === "" && mainIng.length === 0) {
+    if (mainIng === "" || mainIng.length === 0 || mainIng === " ") {
       ingArray.value.length = 0;
     } else {
       serchDetails(data);

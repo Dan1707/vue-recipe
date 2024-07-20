@@ -106,6 +106,7 @@ const searchByCategory = async () => {
 watch(currentCategory, searchByCategory);
 watch(currentCategory, () => {
   storeData.currentCategory = currentCategory.value;
+  storeData.currentPage = 1;
 });
 </script>
 

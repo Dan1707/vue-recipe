@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { computed, watch } from "vue";
 import {
   Pagination,
   PaginationEllipsis,
@@ -10,6 +10,9 @@ import {
   PaginationNext,
   PaginationPrev,
 } from "@/components/ui/pagination";
+import store from "@/store.ts";
+
+const storeData = store();
 
 const props = defineProps({
   arr: {
@@ -23,14 +26,13 @@ const emits = defineEmits(["sendArr"]);
 
 // pagination logic
 const recOnPage = 6;
-const currentPage = ref(1);
 
 const amountOnPage = computed(() => {
   return Math.ceil(props.arr.length / recOnPage);
 });
 
 const slicedArray = computed(() => {
-  const start = recOnPage * (currentPage.value - 1);
+  const start = recOnPage * (storeData.currentPage - 1);
   const end = start + recOnPage;
   return props.arr.slice(start, end);
 });
@@ -51,8 +53,8 @@ watch(slicedArray, () => {
       class="w-full flex items-center justify-center mt-10"
     >
       <PaginationList v-slot="{ items }" class="flex items-center gap-1">
-        <PaginationFirst @click="currentPage = 1" />
-        <PaginationPrev @click="currentPage--" />
+        <PaginationFirst @click="storeData.currentPage = 1" />
+        <PaginationPrev @click="storeData.currentPage--" />
 
         <template v-for="(item, index) in items">
           <PaginationListItem
@@ -64,7 +66,7 @@ watch(slicedArray, () => {
             <Button
               class="w-10 h-10 p-0 text-dark"
               :variant="item.value === page ? 'default' : 'outline'"
-              @click="currentPage = item.value"
+              @click="storeData.currentPage = item.value"
             >
               {{ item.value }}
             </Button>
@@ -72,8 +74,8 @@ watch(slicedArray, () => {
           <PaginationEllipsis v-else :key="item.type" :index="index" />
         </template>
 
-        <PaginationNext @click="currentPage++" />
-        <PaginationLast @click="currentPage = amountOnPage" />
+        <PaginationNext @click="storeData.currentPage++" />
+        <PaginationLast @click="storeData.currentPage = amountOnPage" />
       </PaginationList>
     </Pagination>
   </template>

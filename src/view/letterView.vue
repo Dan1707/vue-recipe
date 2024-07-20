@@ -82,7 +82,7 @@ const slicedArray = computed(() => {
   </h1>
   <div v-if="showInput === false">
     <div
-      class="flex justify-between flex-wrap gap-1 items-center mt-10 max-w-xl m-auto"
+      class="flex justify-between flex-wrap gap-1 items-center mt-10 max-w-xl m-auto px-[20px]"
     >
       <span
         class="cursor-pointer text-2xl hover:text-primary duration-200"
