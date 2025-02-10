@@ -15,18 +15,18 @@ interface sliderItem {
 
 const sliderArray: sliderItem[] = [
   {
-    path: "src/assets/img/slider/slider-1.jpg",
+    path: "/public/slider/slider-1.jpg",
     title: "Easy to use",
     titleStyles: "bottom-0 m-10",
   },
   {
-    path: "src/assets/img/slider/slider-2.jpg",
+    path: "/public/slider/slider-2.jpg",
     title: "Cook with your family",
     titleStyles: "top-0 right-0 m-10",
   },
   {
-    path: "src/assets/img/slider/slider-3.jpg",
-    title: "Discover new recipies",
+    path: "/public/slider/slider-3.jpg",
+    title: "Discover new recipes",
     titleStyles:
       "left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] m-0 p-0 text-center",
   },
@@ -50,7 +50,7 @@ const sliderArray: sliderItem[] = [
               class="bg-cover h-[380px] tablet:h-[270px] overflow-hidden w-full relative p-0 rounded-lg"
               v-for="slider in sliderArray"
               :key="slider.path"
-              :style="{ 'background-image': `url(${slider.path})` }"
+              :style="{ 'background-image': `url('${slider.path}')` }"
             >
               <div class="absolute inset-0 bg-dark opacity-40"></div>
               <div class="p-10 relative w-full min-h-full">
