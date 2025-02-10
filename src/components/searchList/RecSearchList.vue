@@ -21,7 +21,7 @@ const searchEmit = (text: string) => {
   >
     <div class="w-full relative">
       <div
-        class="max-w-[1090px] mr-12 flex-col shadow-md rounded-lg p-5 bg-gray-200 backdrop-blur-sm bg-opacity-50 tablet:p-4"
+        class="max-w-[1090px] mr-12 flex-col shadow-md rounded-lg p-5 bg-gray-200 tablet:p-4"
         :class="{ hideSearch: hideSearch }"
       >
         <slot></slot>
